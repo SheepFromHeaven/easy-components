@@ -23,7 +23,7 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "release": "NPM_TOKEN=d7347139-c775-4491-9cd4-a7cbe74ef6de GITHUB_TOKEN=9322a59c4c75ddf6ba58d3153c0bc1dd676e9966 semantic-release"
+    "release": "semantic-release"
   },
   "dependencies": {
     "@stencil/core": "^2.0.1"
