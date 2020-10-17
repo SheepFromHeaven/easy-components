@@ -6,20 +6,72 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-
+    interface EasyOffcanvasPanel {
+        "activeBelow": number;
+        "closeOutside": boolean;
+        "darken": boolean;
+        "open": boolean;
+        "position": 'left' | 'right';
+    }
+    interface EasyOffcanvasProvider {
+        "registerOffcanvas": (offcanvasElement: HTMLEasyOffcanvasPanelElement) => Promise<void>;
+    }
+    interface EasyOffcanvasTrigger {
+        "offcanvasId": string;
+    }
 }
 declare global {
+    interface HTMLEasyOffcanvasPanelElement extends Components.EasyOffcanvasPanel, HTMLStencilElement {
+    }
+    var HTMLEasyOffcanvasPanelElement: {
+        prototype: HTMLEasyOffcanvasPanelElement;
+        new (): HTMLEasyOffcanvasPanelElement;
+    };
+    interface HTMLEasyOffcanvasProviderElement extends Components.EasyOffcanvasProvider, HTMLStencilElement {
+    }
+    var HTMLEasyOffcanvasProviderElement: {
+        prototype: HTMLEasyOffcanvasProviderElement;
+        new (): HTMLEasyOffcanvasProviderElement;
+    };
+    interface HTMLEasyOffcanvasTriggerElement extends Components.EasyOffcanvasTrigger, HTMLStencilElement {
+    }
+    var HTMLEasyOffcanvasTriggerElement: {
+        prototype: HTMLEasyOffcanvasTriggerElement;
+        new (): HTMLEasyOffcanvasTriggerElement;
+    };
     interface HTMLElementTagNameMap {
+        "easy-offcanvas-panel": HTMLEasyOffcanvasPanelElement;
+        "easy-offcanvas-provider": HTMLEasyOffcanvasProviderElement;
+        "easy-offcanvas-trigger": HTMLEasyOffcanvasTriggerElement;
     }
 }
 declare namespace LocalJSX {
+    interface EasyOffcanvasPanel {
+        "activeBelow"?: number;
+        "closeOutside"?: boolean;
+        "darken"?: boolean;
+        "open"?: boolean;
+        "position"?: 'left' | 'right';
+    }
+    interface EasyOffcanvasProvider {
+    }
+    interface EasyOffcanvasTrigger {
+        "offcanvasId"?: string;
+        "onEasyOffcanvasTrigger"?: (event: CustomEvent<{id: string}>) => void;
+    }
     interface IntrinsicElements {
+        "easy-offcanvas-panel": EasyOffcanvasPanel;
+        "easy-offcanvas-provider": EasyOffcanvasProvider;
+        "easy-offcanvas-trigger": EasyOffcanvasTrigger;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "easy-offcanvas-panel": LocalJSX.EasyOffcanvasPanel & JSXBase.HTMLAttributes<HTMLEasyOffcanvasPanelElement>;
+            "easy-offcanvas-provider": LocalJSX.EasyOffcanvasProvider & JSXBase.HTMLAttributes<HTMLEasyOffcanvasProviderElement>;
+            "easy-offcanvas-trigger": LocalJSX.EasyOffcanvasTrigger & JSXBase.HTMLAttributes<HTMLEasyOffcanvasTriggerElement>;
         }
     }
 }
