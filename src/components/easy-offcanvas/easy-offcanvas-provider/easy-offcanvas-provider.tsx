@@ -5,7 +5,7 @@ import { Component, Element, State, Listen, Method } from '@stencil/core';
   styleUrl: 'easy-offcanvas-provider.css',
   shadow: false,
 })
-export class EasyOffcanvas {
+export class EasyOffcanvasProvider {
   @Element() el: HTMLElement;
 
   @State() offcanvasElements: HTMLEasyOffcanvasPanelElement[] = [];

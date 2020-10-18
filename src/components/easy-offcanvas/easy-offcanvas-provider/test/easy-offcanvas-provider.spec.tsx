@@ -1,18 +1,14 @@
 import { newSpecPage } from '@stencil/core/testing';
-import { EasyOffcanvas } from '../easy-offcanvas';
+import { EasyOffcanvasProvider } from '../easy-offcanvas-provider';
 
-describe('easy-offcanvas', () => {
+describe('easy-offcanvas-provider', () => {
   it('renders', async () => {
     const page = await newSpecPage({
-      components: [EasyOffcanvas],
-      html: `<easy-offcanvas></easy-offcanvas>`,
+      components: [EasyOffcanvasProvider],
+      html: `<easy-offcanvas-provider></easy-offcanvas-provider>`,
     });
     expect(page.root).toEqualHtml(`
-      <easy-offcanvas>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </easy-offcanvas>
+      <easy-offcanvas-provider></easy-offcanvas-provider>
     `);
   });
 });

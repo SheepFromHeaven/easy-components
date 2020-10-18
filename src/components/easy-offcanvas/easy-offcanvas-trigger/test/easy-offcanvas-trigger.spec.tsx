@@ -8,11 +8,7 @@ describe('easy-offcanvas-trigger', () => {
       html: `<easy-offcanvas-trigger></easy-offcanvas-trigger>`,
     });
     expect(page.root).toEqualHtml(`
-      <easy-offcanvas-trigger>
-        <mock:shadow-root>
-          <slot></slot>
-        </mock:shadow-root>
-      </easy-offcanvas-trigger>
+      <easy-offcanvas-trigger></easy-offcanvas-trigger>
     `);
   });
 });

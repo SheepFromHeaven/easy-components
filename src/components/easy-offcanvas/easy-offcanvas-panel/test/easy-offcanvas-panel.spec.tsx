@@ -8,9 +8,12 @@ describe('easy-offcanvas-panel', () => {
       html: `<easy-offcanvas-panel></easy-offcanvas-panel>`,
     });
     expect(page.root).toEqualHtml(`
-      <easy-offcanvas-panel>
+      <easy-offcanvas-panel class="active">
         <mock:shadow-root>
-          <slot></slot>
+          <div class="background"></div>
+          <div class="slide left">
+            <slot></slot>
+          </div>
         </mock:shadow-root>
       </easy-offcanvas-panel>
     `);

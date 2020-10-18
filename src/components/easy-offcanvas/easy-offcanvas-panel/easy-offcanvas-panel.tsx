@@ -21,7 +21,7 @@ export class EasyOffcanvasPanel {
   @State() active: boolean;
 
   componentWillLoad() {
-    document.querySelector('easy-offcanvas-provider').registerOffcanvas(this.el);
+    document.querySelector('easy-offcanvas-provider')?.registerOffcanvas(this.el);
   }
 
   componentDidLoad() {
