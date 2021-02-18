@@ -10,22 +10,16 @@ export class EasyOffcanvasPanel {
 
   @Prop({ reflect: true, mutable: true }) open: boolean;
 
-  @Prop({ reflect: true }) darken: boolean;
-
   @Prop() position: 'left' | 'right' = 'left';
 
-  @Prop() activeBelow: number;
+  @Prop() animationTime: number = 300;
 
   @Prop() closeOutside: boolean;
 
-  @State() active: boolean;
+  @Prop() active: boolean = true;
 
   componentWillLoad() {
     document.querySelector('easy-offcanvas-provider')?.registerOffcanvas(this.el);
-  }
-
-  componentDidLoad() {
-    this.onResize();
   }
 
   onBackgroundClick() {
@@ -34,22 +28,20 @@ export class EasyOffcanvasPanel {
     }
   }
 
-  @Listen('resize', { target: 'window' })
-  onResize() {
-    this.active = !this.activeBelow || window.innerWidth <= this.activeBelow;
-  }
-
   render() {
     return (
-      <Host class={{ open: this.open, active: this.active }}>
-        <div class={{
-          background: true,
-          darken: this.darken,
-        }} onClick={this.onBackgroundClick.bind(this)}></div>
-        <div class={{
-          slide: true,
-          [this.position]: true,
-        }}>
+      <Host class={{
+        open: this.open,
+        active: this.active,
+        [this.position]: true,
+      }}>
+        <div part='background' onClick={this.onBackgroundClick.bind(this)}></div>
+        <div 
+          part='panel'
+          style={{
+            transition: `transform ${this.animationTime}ms`,
+          }}
+        >
           <slot></slot>
         </div>
       </Host>

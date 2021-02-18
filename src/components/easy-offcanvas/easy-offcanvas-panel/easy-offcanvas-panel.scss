@@ -1,3 +1,17 @@
+:host(.left) {
+  [part='panel'] {
+    left: 0;
+    transform: translateX(-100%);
+  }
+}
+
+:host(.right){
+  [part='panel'] {
+    right: 0;
+    transform: translateX(100%);
+  }
+}
+
 :host(.active) {
   display: block;
   position: fixed;
@@ -7,46 +21,30 @@
   right: 0;
   pointer-events: none;
 
-  .slide {
+  [part='panel'] {
     display: inline-block;
     position: absolute;
     top: 0;
     height: 100%;
-    transition: transform .3s;
-    transition-delay: .1s;
-
-    &.left {
-      left: 0;
-      transform: translateX(-100%);
-    }
-
-    &.right {
-      right: 0;
-      transform: translateX(100%);
-    }
   }
 
-  .background {
+  [part='background'] {
     transition: opacity .4s;
     background-color: transparent;
     width: 100vw;
     height: 100vh;
     opacity: 0;
-
-    &.darken {
-      background-color: rgba(0, 0, 0, .5);
-    }
   }
 }
 
 :host(.active.open) {
   pointer-events: all;
 
-  .slide {
+  [part='panel'] {
     transform: translateX(0%);
   }
 
-  .background {
+  [part='background'] {
     opacity: 1;
   }
 }

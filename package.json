@@ -10,10 +10,9 @@
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/easy/easy.js",
-  "files": [
-    "dist/",
-    "loader/"
-  ],
+  "bin": {
+    "easy": "bin/easy.js"
+  },
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org/",
@@ -25,10 +24,13 @@
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
-    "release": "semantic-release"
+    "release": "semantic-release",
+    "tsc": "tsc bin/easy.ts"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.4.0",
+    "command-line-args": "^5.1.1",
+    "cpy": "^8.1.1"
   },
   "license": "MIT",
   "devDependencies": {
@@ -42,6 +44,7 @@
     "jest-cli": "^26.4.2",
     "postcss": "^8.1.1",
     "puppeteer": "^5.2.1",
-    "semantic-release": "^17.2.1"
+    "semantic-release": "^17.2.1",
+    "typescript": "^4.1.5"
   }
 }

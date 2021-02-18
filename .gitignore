@@ -1,6 +1,7 @@
 dist/
 www/
 loader/
+bin/*.js
 
 *~
 *.sw[mnpcod]
